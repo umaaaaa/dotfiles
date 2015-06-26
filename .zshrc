@@ -111,3 +111,4 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
+

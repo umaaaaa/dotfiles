@@ -193,6 +193,13 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'davidhalter/jedi-vim'
 "コメントアウト
 NeoBundle "tyru/caw.vim.git"
+" テキストを整列してくれるやる
+NeoBundle 'junegunn/vim-easy-align'
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+
+nmap ga <Plug>(EasyAlign)
 nmap <Leader>c <Plug>(caw:i:toggle)
 vmap <Leader>c <Plug>(caw:i:toggle)
 "ifとかの終了宣言を自動挿入
