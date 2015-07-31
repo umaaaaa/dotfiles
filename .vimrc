@@ -21,7 +21,7 @@ inoremap jj <ESC>
 cmap w!! w !sudo tee > /dev/null %
 
 "バックアップファイルのディレクトリを指定する
-"set backupdir=$HOME/vimbackup
+set backupdir=$HOME/vimbackup
 
 "vi互換をオフする
 set nocompatible
@@ -30,7 +30,7 @@ set nocompatible
 set relativenumber
 
 "スワップファイル用のディレクトリを指定する
-"set directory=$HOME/vimbackup
+set directory=$HOME/vimbackup
 
 "タブの代わりに空白文字を指定する
 set expandtab
@@ -72,7 +72,7 @@ nnoremap <ESC><ESC> :nohlsearch<CR>
 autocmd QuickFixCmdPost *grep* cwindow
 
 " エスケープシーケンスの表示 tab eol
-set list
+" set list
 
 " 全角スペースの表示
 function! ZenkakuSpace()
@@ -170,13 +170,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " vimmer養成ギプス
 "NeoBundle 'modsound/gips-vim.git'
-NeoBundle 'vim-scripts/vim-auto-save'
 NeoBundle 'plasticboy/vim-markdown'
-NeoBundle 'tukiyo/previm' 
-"NeoBundle 'kannokanno/previm'
+" NeoBundle 'tukiyo/previm' 
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'kana/vim-submode'
-"NeoBundle 'tpope/vim-surround'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler.vim'
 "Ruby向けにendを自動挿入
@@ -185,8 +182,6 @@ NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tomtom/tcomment_vim'
 " vim-ref 
 NeoBundle 'thinca/vim-ref'
-"Neobundle 'mfumi/ref-dicts-en'
-"Neobundle 'tyru/vim-altercmd'
 "quickrun
 NeoBundle 'thinca/vim-quickrun'
 "補完機能
@@ -198,6 +193,8 @@ NeoBundle 'junegunn/vim-easy-align'
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+" html/css入力補助プラグイン
+NeoBundle 'mattn/emmet-vim'
 
 nmap ga <Plug>(EasyAlign)
 nmap <Leader>c <Plug>(caw:i:toggle)

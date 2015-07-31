@@ -71,7 +71,7 @@ plugins=(git)
 
 # User configuration
 
-# export PATH="/Users/Kentaro/.rvm/gems/ruby-2.1.2/bin:/Users/Kentaro/.rvm/gems/ruby-2.1.2@global/bin:/Users/Kentaro/.rvm/rubies/ruby-2.1.2/bin:/Users/Kentaro/.plenv/shims:/Users/Kentaro/.plenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Users/Kentaro/.rvm/bin"
+export PATH="/Users/Kentaro/.rvm/gems/ruby-2.1.2/bin:/Users/Kentaro/.rvm/gems/ruby-2.1.2@global/bin:/Users/Kentaro/.rvm/rubies/ruby-2.1.2/bin:/Users/Kentaro/.plenv/shims:/Users/Kentaro/.plenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Users/Kentaro/.rvm/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
