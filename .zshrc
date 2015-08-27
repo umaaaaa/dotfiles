@@ -1,20 +1,9 @@
-export PATH=~/Downloads/leJOS_EV3_0.8.1-beta/bin:$PATH
-export EV3_HOME=~/Downloads/leJOS_EV3_0.8.1-beta
-export LEJOS_EV3_JAVA_HOME='/System/Library/Frameworks/JavaVM.framework/Versions/A/Commands/java_home -v "1.6"'
-#export PATH=$PATH:/usr/local/share/python
-
 # anyenv
 
 if [ -d $HOME/.anyenv ] ; then
   export PATH="$HOME/.anyenv/bin:$PATH"
   eval "$(anyenv init -)"
 fi
-
-
-
-EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
-alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8

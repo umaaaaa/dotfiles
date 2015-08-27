@@ -4,7 +4,7 @@
 set notitle
 
 set encoding=utf-8
-set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
+set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis
 set fileformats=unix,dos,mac
 
 "ヤンクでクリップボードにコピーできるように
@@ -45,7 +45,7 @@ set hidden
 set incsearch
 
 "行番号を表示する
-set number
+" set number
 
 "自動で括弧を閉じる
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
