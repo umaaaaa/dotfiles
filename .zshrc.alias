@@ -1,0 +1,157 @@
+# ls {{{
+alias ls="ls -G"
+alias la="ls -a"
+alias lf="ls -F"
+alias ll="ls -l"
+alias lla="ls -al"
+alias sl="ls"
+# }}}
+
+# git {{{
+alias g="git"
+alias gi="git init"
+
+alias ga="git add"
+alias gaa="git add -A"
+alias gac="git add ."
+alias gau="git add -u"
+alias gc="git commit"
+alias gcoa="git commit --amend"
+
+alias gb="git branch"
+alias gbc="git-new-branch"
+alias gbC="git checkout -b"
+alias gtg="git tag"
+alias gsb="git show-branch"
+
+alias gco="git checkout"
+alias gcom="git checkout master"
+alias gcod="git checkout develop"
+alias gC="git checkout B"
+
+alias gm="git merge"
+alias gM="git merge B"
+alias grb="git rebase"
+alias grB="git rebase B"
+
+alias gss="git stash"
+alias gsl="git stash list"
+alias gsp="git stash pop"
+
+alias gr="git reset"
+alias grs="git reset --soft"
+alias grh="git reset --hard"
+alias grhh="git reset --hard HEAD"
+alias grv="git revert"
+
+alias gs="git status -sb"
+alias gst="git status"
+
+alias gl="git log --oneline --decorate"
+alias gll="git log --pretty=full --decorate"
+alias ggr="git log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'"
+alias ggp="cool-peco git-log"
+
+alias gd="git diff"
+alias gdh="git diff HEAD~ HEAD"
+
+alias gcl="git clone"
+alias grau="git remote add upstream"
+
+alias gf="git fetch"
+
+alias gps="git push"
+alias ggpush='git push origin $(current_branch)'
+
+alias gpl="git pull"
+alias gplo='git pull origin $(current_branch)'
+alias gplr="git pull --rebase"
+alias gplu="git pull upstream master"
+
+alias -g B='`git branch -a | grep -v "HEAD" | peco --prompt "GIT BRANCH >" | head -n 1 | sed -e "s/^\*\s*//g"`'
+# }}}
+
+# tmux {{{
+alias tmux="tmux -2"
+alias tm="tmux"
+alias tma="tmux attach"
+alias tma0="tmux attach -t 0"
+alias tma1="tmux attach -t 1"
+alias tma2="tmux attach -t 2"
+alias tml="tmux list-sessions"
+# }}}
+
+# for perl {{{
+alias cpan="cpanm"
+alias reply="PERL_RL=Caroline reply"
+alias perlt="PLACK_ENV=test perl -Ilib -It -It/lib -MTest::Pretty"
+
+alias cm="cpanm"
+alias cmu="cpanm -U"
+alias cmi="cpanm --installdeps"
+
+alias ce="carton exec -- "
+alias ci="carton install"
+
+alias perldoc="ccpandoc"
+
+alias cepr="carton exec -- prove"
+alias cepr2="cepr -j2"
+alias cepr4="cepr -j4"
+
+alias pr="prove"
+alias pr2="prove -j2"
+alias pr4="prove -j4"
+# }}}
+
+# for ruby {{{
+alias prspec="parallel_rspec"
+# }}}
+
+# others {{{
+#   change directory {{{
+alias cl="clear"
+alias c="cd"
+alias pd="popd"
+#   }}}
+
+#   vim {{{
+if test -e /Applications/MacVim.app/Contents/MacOS/Vim; then
+    alias vim='/Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+fi
+alias vi=vim
+#   }}}
+
+#   ghq {{{
+alias "ghg"="ghq get -p"
+alias "ghu"="ghq get -u"
+#   }}}
+
+alias slink="ln -s"
+alias diff="git diff"
+alias ap='with-sound ansible-playbook'
+alias apv='ap --ask-vault-pass'
+alias av='ansible-vault'
+alias ave='ansible-vault edit'
+alias pag='ps aux | grep'
+alias lo='logout'
+# }}}
+
+# 解凍 {{{
+function extract() {
+    case $1 in
+        *.tar.gz|*.tgz) tar xzvf $1;;
+        *.tar.xz) tar Jxvf $1;;
+        *.zip) unzip $1;;
+        *.lzh) lha e $1;;
+        *.tar.bz2|*.tbz) tar xjvf $1;;
+        *.tar.Z) tar zxvf $1;;
+        *.gz) gzip -dc $1;;
+        *.bz2) bzip2 -dc $1;;
+        *.Z) uncompress $1;;
+        *.tar) tar xvf $1;;
+        *.arj) unarj $1;;
+    esac
+}
+alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
+# }}}

@@ -47,6 +47,9 @@ set incsearch
 "行番号を表示する
 " set number
 
+" syntax色付け
+syntax on
+
 "自動で括弧を閉じる
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap [<Enter> []<Left><CR><ESC><S-o>
