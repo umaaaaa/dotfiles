@@ -17,6 +17,9 @@ set shiftwidth=2
 "入力モード中に素早くjjと入力した場合はESCとみなす
 inoremap jj <ESC>
 
+" インサートモードでバックスペース有効に
+set backspace=indent,eol,start
+
 "w!!でスーパーユーザとして保存（sudoが使える環境限定)
 cmap w!! w !sudo tee > /dev/null %
 
