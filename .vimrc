@@ -1,11 +1,13 @@
 "--------------------
-"" 基本的な設定
+" 基本的な設定
 "--------------------
 set notitle
 
 set encoding=utf-8
 set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis
 set fileformats=unix,dos,mac
+
+syntax enable
 
 "ヤンクでクリップボードにコピーできるように
 set clipboard=unnamed,autoselect
@@ -49,9 +51,6 @@ set incsearch
 
 "行番号を表示する
 " set number
-
-" syntax色付け
-syntax on
 
 "自動で括弧を閉じる
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
@@ -145,8 +144,6 @@ augroup PrevimSettings
 	    autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
 
-colorscheme desert
-
 "gips-vim
 let g:gips_reading_txt = '$HOME/.vim/bundle/gips-vim/autoload/dict/tsundere.txt'
 
@@ -182,6 +179,8 @@ NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'kana/vim-submode'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler.vim'
+" Solorized
+NeoBundle 'altercation/vim-colors-solarized'
 "Ruby向けにendを自動挿入
 NeoBundle 'tpope/vim-endwise' 
 " コメントON/OFFを手軽に実行

@@ -296,28 +296,28 @@ zle -A .backward-delete-char vi-backward-delete-char
 # }}}
 
 # tmux {{{
-# if ( ! test $TMUX ) && ( ! expr $TERM : "^screen" > /dev/null ) && which tmux > /dev/null; then
-#     if ( tmux has-session ); then
-#         session=`tmux list-sessions | grep -e '^[0-9].*]$' | head -n 1 | sed -e 's/^\([0-9]\+\).*$/\1/'`
-#             if [ -n "$session" ]; then
-#             echo "Attache tmux session $session."
-#                 tmux attach-session -t $session
-#         else
-#             echo "Session has been already attached."
-#             tmux list-sessions
-#             fi
-#     else
-#         echo "Create new tmux session."
-#         tmux
-#     fi
-# fi
-#
-# if [[ -n $TMUX ]]; then
-#     function _tmux_alert() {
-#         echo -n "\a"
-#     }
-#     add-zsh-hook precmd _tmux_alert
-# fi
+if ( ! test $TMUX ) && ( ! expr $TERM : "^screen" > /dev/null ) && which tmux > /dev/null; then
+    if ( tmux has-session ); then
+        session=`tmux list-sessions | grep -e '^[0-9].*]$' | head -n 1 | sed -e 's/^\([0-9]\+\).*$/\1/'`
+            if [ -n "$session" ]; then
+            echo "Attache tmux session $session."
+                tmux attach-session -t $session
+        else
+            echo "Session has been already attached."
+            tmux list-sessions
+            fi
+    else
+        echo "Create new tmux session."
+        tmux
+    fi
+fi
+
+if [[ -n $TMUX ]]; then
+    function _tmux_alert() {
+        echo -n "\a"
+    }
+    add-zsh-hook precmd _tmux_alert
+fi
 if [ -z "$TMUX" -a -z "$STY" ]; then
     if type tmuxx >/dev/null 2>&1; then
         tmuxx
@@ -450,3 +450,9 @@ setopt hist_ignore_all_dups # 同一コマンドがある場合, 古いものを
 setopt hist_no_store        # historyコマンドは履歴に保存しない
 setopt hist_expand          # 補完時にヒストリを自動展開
 # }}}
+
+#power_line {{{
+# export PATH=$PATH:~/.local/bin
+# powerline-daemon -q
+# . ~/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+#}}}
