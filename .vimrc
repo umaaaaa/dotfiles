@@ -173,7 +173,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " vimmer養成ギプス
 "NeoBundle 'modsound/gips-vim.git'
-NeoBundle 'plasticboy/vim-markdown'
+" NeoBundle 'plasticboy/vim-markdown'
 " NeoBundle 'tukiyo/previm' 
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'kana/vim-submode'

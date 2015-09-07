@@ -452,6 +452,7 @@ setopt hist_expand          # 補完時にヒストリを自動展開
 # }}}
 
 #power_line {{{
+ # PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 # export PATH=$PATH:~/.local/bin
 # powerline-daemon -q
 # . ~/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
