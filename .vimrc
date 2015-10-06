@@ -220,6 +220,10 @@ vmap <Enter> <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 " html/css入力補助プラグイン
 NeoBundle 'mattn/emmet-vim'
+" powerline
+NeoBundle 'alpaca-tc/alpaca_powertabline'
+NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
+NeoBundle 'Lokaltog/powerline-fontpatcher'
 
 nmap ga <Plug>(EasyAlign)
 nmap <Leader>c <Plug>(caw:i:toggle)
