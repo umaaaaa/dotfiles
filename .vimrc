@@ -14,7 +14,13 @@ set clipboard=unnamed,autoselect
 
 ""新しい行のインデントを現在行と同じにする
 set autoindent
-set shiftwidth=2
+set shiftwidth=4
+
+"ステータスラインを常に表示
+set laststatus=2
+
+"ルーラーを表示
+set ruler
 
 "入力モード中に素早くjjと入力した場合はESCとみなす
 inoremap jj <ESC>
@@ -46,8 +52,15 @@ set tabstop=2
 "変更中のファイルでも、保存しないで他のファイルを表示する
 set hidden
 
-"インクリメンタルサーチを行う
-set incsearch
+"検索の時に大文字小文字区別しない
+set ignorecase
+"検索の時に大文字が含まれている場合は区別して検索
+set smartcase
+"検索結果をハイライトする
+set hlsearch
+
+"インクリメンタルサーチを行わない
+set noincsearch
 
 "行番号を表示する
 " set number
