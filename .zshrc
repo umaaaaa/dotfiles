@@ -33,7 +33,7 @@ do
 done
 
 # for direnv
-eval "$(direnv hook zsh)"
+# eval "$(direnv hook zsh)"
 
 # for cool-peco
 # source $HOME/Dropbox/dotfiles/cool-peco/cool-peco

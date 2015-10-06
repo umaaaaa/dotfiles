@@ -50,7 +50,7 @@ set hidden
 set incsearch
 
 "行番号を表示する
-set number
+" set number
 
 "自動で括弧を閉じる
 inoremap { {}<LEFT>

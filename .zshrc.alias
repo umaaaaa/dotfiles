@@ -155,3 +155,8 @@ function extract() {
 }
 alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
 # }}}
+
+# 某社 {{{
+alias restart-plack="pkill -HUP start_server"
+alias restart-servers="mf-restart-server"
+#}}}
