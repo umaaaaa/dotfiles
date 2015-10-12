@@ -59,11 +59,11 @@ set smartcase
 "検索結果をハイライトする
 set hlsearch
 
-"インクリメンタルサーチを行わない
-set noincsearch
+"インクリメンタルサーチを行う
+set incsearch
 
 "行番号を表示する
-" set number
+set number
 
 "自動で括弧を閉じる
 inoremap { {}<LEFT>
