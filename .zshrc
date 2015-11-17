@@ -9,6 +9,11 @@ export EDITOR=vim
 export LANG=ja_JP.UTF-8
 export LESSCHARSET=utf-8
 
+# goのパス
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
 # scriptへのパス
 path=( ${path} $HOME/Dropbox/dotfiles/script(N-/) $HOME/.script.local(N-/) )
 
@@ -36,7 +41,7 @@ done
 # eval "$(direnv hook zsh)"
 
 # for cool-peco
-# source $HOME/Dropbox/dotfiles/cool-peco/cool-peco
+source $HOME/dotfiles/cool-peco/cool-peco
 
 # for plenv
 unset -f _plenv
