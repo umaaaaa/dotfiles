@@ -14,6 +14,10 @@ set clipboard=unnamed,autoselect
 
 ""新しい行のインデントを現在行と同じにする
 set autoindent
+
+autocmd! FileType html setlocal shiftwidth=2
+autocmd! FileType css setlocal shiftwidth=2
+autocmd! FileType markdown setlocal shiftwidth=2
 set shiftwidth=4
 
 "ステータスラインを常に表示
@@ -224,6 +228,32 @@ NeoBundle 'mattn/emmet-vim'
 NeoBundle 'alpaca-tc/alpaca_powertabline'
 NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
 NeoBundle 'Lokaltog/powerline-fontpatcher'
+"選択範囲を囲む
+NeoBundle 'tpope/vim-surround'
+"ふぁいらーー
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neomru.vim'
+"ヤンク履歴を保持してくれる
+NeoBundle 'LeafCage/yankround.vim'
+" yankround.vim {{{
+nmap p <Plug>(yankround-p)
+nmap P <Plug>(yankround-P)
+nmap <C-p> <Plug>(yankround-prev)
+nmap <C-n> <Plug>(yankround-next)
+let g:yankround_max_history = 100
+nnoremap <Leader><C-p> :<C-u>Unite yankround<CR>
+"}}}
+" memo取るマン
+NeoBundle 'glidenote/memolist.vim'
+" memolist {{{
+let g:memolist_path = expand('~/memo')
+let g:memolist_gfixgrep = 1
+let g:memolist_unite = 1
+let g:memolist_unite_option = "-vertical -start-insert"
+nnoremap mn  :MemoNew<CR>
+nnoremap ml  :MemoList<CR>
+nnoremap mg  :MemoGrep<CR>
+"}}}
 
 nmap ga <Plug>(EasyAlign)
 nmap <Leader>c <Plug>(caw:i:toggle)

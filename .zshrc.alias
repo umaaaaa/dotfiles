@@ -20,7 +20,7 @@ alias gcoa="git commit --amend"
 
 alias gb="git branch"
 alias gbc="git-new-branch"
-alias gbC="git checkout -b"
+alias gcob="git checkout -b"
 alias gtg="git tag"
 alias gsb="git show-branch"
 
@@ -61,7 +61,7 @@ alias grau="git remote add upstream"
 alias gf="git fetch"
 
 alias gps="git push"
-alias ggpush='git push origin $(current_branch)'
+alias gpso='git push origin $(current_branch)'
 
 alias gpl="git pull"
 alias gplo='git pull origin $(current_branch)'
