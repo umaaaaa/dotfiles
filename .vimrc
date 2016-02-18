@@ -15,13 +15,20 @@ set clipboard=unnamed,autoselect
 ""新しい行のインデントを現在行と同じにする
 set autoindent
 
+nnoremap j gj
+nnoremap k gk
+nnoremap <Down> gj
+nnoremap <Up>   gk
+
 autocmd! FileType html setlocal shiftwidth=2
 autocmd! FileType css setlocal shiftwidth=2
 autocmd! FileType markdown setlocal shiftwidth=2
+autocmd! FileType markdown hi! def link markdownItalic Normal
 set shiftwidth=4
 
 "ステータスラインを常に表示
 set laststatus=2
+set statusline=%F%m%r%h%w%=\ %{fugitive#statusline()}\ [%{&ff}:%{&fileencoding}]\ [%Y]\ [%04l,%04v]\ [%l/%L]\ %{strftime(\"%Y/%m/%d\ %H:%M:%S\")}
 
 "ルーラーを表示
 set ruler
@@ -245,6 +252,8 @@ nnoremap <Leader><C-p> :<C-u>Unite yankround<CR>
 "}}}
 " memo取るマン
 NeoBundle 'glidenote/memolist.vim'
+" coffeescript syntax
+NeoBundle 'kchmck/vim-coffee-script'
 " memolist {{{
 let g:memolist_path = expand('~/memo')
 let g:memolist_gfixgrep = 1
