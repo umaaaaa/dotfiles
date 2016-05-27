@@ -12,3 +12,5 @@
 	editor = vim -c \"set fenc=utf-8\"
 [push]
 	default = matching
+[alias]
+	conflicts = !git ls-files -u | cut -f 2 | sort -u

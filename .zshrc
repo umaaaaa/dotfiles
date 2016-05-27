@@ -323,6 +323,7 @@ if [[ -n $TMUX ]]; then
     }
     add-zsh-hook precmd _tmux_alert
 fi
+# 自動起動
 if [ -z "$TMUX" -a -z "$STY" ]; then
     if type tmuxx >/dev/null 2>&1; then
         tmuxx
