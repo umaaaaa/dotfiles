@@ -140,9 +140,9 @@ precmd() {
     psvar=()
     LANG=en_US.UTF-8 vcs_info
     [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
-    psvar[2]=$(_plenv_perl_version)
-    psvar[3]=$(_rbenv_ruby_version)
-    psvar[4]=$(_pyenv_python_version)
+    psvar[2]=$(_pyenv_python_version)
+    psvar[3]=$(_plenv_perl_version)
+    psvar[4]=$(_rbenv_ruby_version)
     psvar[5]=`echo $USER`
     psvar[6]=$(_ndenv_node_version)
 }
@@ -324,19 +324,19 @@ if [[ -n $TMUX ]]; then
     add-zsh-hook precmd _tmux_alert
 fi
 # 自動起動
-if [ -z "$TMUX" -a -z "$STY" ]; then
-    if type tmuxx >/dev/null 2>&1; then
-        tmuxx
-    elif type tmux >/dev/null 2>&1; then
-        if tmux has-session && tmux list-sessions | /usr/bin/grep -qE '.*]$'; then
-            tmux attach && echo "tmux attached session "
-        else
-            tmux new-session && echo "tmux created new session"
-        fi
-    elif type screen >/dev/null 2>&1; then
-        screen -rx || screen -D -RR
-    fi
-fi
+# if [ -z "$TMUX" -a -z "$STY" ]; then
+#     if type tmuxx >/dev/null 2>&1; then
+#         tmuxx
+#     elif type tmux >/dev/null 2>&1; then
+#         if tmux has-session && tmux list-sessions | /usr/bin/grep -qE '.*]$'; then
+#             tmux attach && echo "tmux attached session "
+#         else
+#             tmux new-session && echo "tmux created new session"
+#         fi
+#     elif type screen >/dev/null 2>&1; then
+#         screen -rx || screen -D -RR
+#     fi
+# fi
 # }}}
 
 # keybind/command {{{
