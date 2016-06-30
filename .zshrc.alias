@@ -5,6 +5,9 @@ alias lf="ls -F"
 alias ll="ls -l"
 alias lla="ls -al"
 alias sl="ls"
+alias ls="ls -hbF --color=auto"
+alias la="ls -hbaF --color=auto"
+alias ll="ls -hblaF --color=auto"
 # }}}
 
 # git {{{
@@ -78,6 +81,7 @@ alias tma="tmux attach"
 alias tma0="tmux attach -t 0"
 alias tma1="tmux attach -t 1"
 alias tma2="tmux attach -t 2"
+alias tma="tmux attach -t"
 alias tml="tmux list-sessions"
 # }}}
 
@@ -93,7 +97,7 @@ alias cmi="cpanm --installdeps"
 alias ce="carton exec -- "
 alias ci="carton install"
 
-alias perldoc="ccpandoc"
+# alias perldoc="ccpandoc"
 
 alias cepr="carton exec -- prove"
 alias cepr2="cepr -j2"
@@ -113,6 +117,11 @@ alias prspec="parallel_rspec"
 alias cl="clear"
 alias c="cd"
 alias pd="popd"
+setopt auto_cd
+# ↑を設定すると、 .. とだけ入力したら1つ上のディレクトリに移動できるので……
+# # 2つ上、3つ上にも移動できるようにする
+alias ...='cd ../..'
+alias ....='cd ../../..'
 #   }}}
 
 #   vim {{{
@@ -156,8 +165,3 @@ function extract() {
 alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
 # }}}
 
-# 某社 {{{
-alias restart-plack="pkill -HUP start_server"
-alias restart-servers="mf-restart-server"
-alias restart-plack-denco-dev="sudo service plack-denco-dev restart"
-#}}}

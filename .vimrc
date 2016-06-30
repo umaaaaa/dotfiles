@@ -22,6 +22,9 @@ nnoremap k gk
 nnoremap <Down> gj
 nnoremap <Up>   gk
 
+noremap ; :
+noremap : ;
+
 autocmd! FileType html setlocal shiftwidth=2
 autocmd! FileType css setlocal shiftwidth=2
 autocmd! FileType markdown setlocal shiftwidth=2
@@ -34,6 +37,9 @@ set statusline=%F%m%r%h%w%=\ %{fugitive#statusline()}\ [%{&ff}:%{&fileencoding}]
 
 "ルーラーを表示
 set ruler
+
+"コメントを改行で自動挿入しない
+set formatoptions-=ro
 
 "入力モード中に素早くjjと入力した場合はESCとみなす
 inoremap jj <ESC>
