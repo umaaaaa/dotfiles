@@ -97,7 +97,7 @@ alias cmi="cpanm --installdeps"
 alias ce="carton exec -- "
 alias ci="carton install"
 
-alias perldoc="ccpandoc"
+# alias perldoc="ccpandoc"
 
 alias cepr="carton exec -- prove"
 alias cepr2="cepr -j2"
