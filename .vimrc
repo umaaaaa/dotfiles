@@ -79,6 +79,9 @@ set hlsearch
 "インクリメンタルサーチを行う
 set incsearch
 
+"perlお決まり公文
+inoremap ,ff #!/usr/bin/env perl<CR>use strict;<CR>use warnings;
+
 "行番号を表示する
 " set number
 
