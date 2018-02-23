@@ -30,6 +30,7 @@ alias gsb="git show-branch"
 alias gco="git checkout"
 alias gcom="git checkout master"
 alias gcod="git checkout develop"
+alias gcor="git checkout release"
 alias gC="git checkout B"
 
 alias gm="git merge"
@@ -112,6 +113,9 @@ alias pr4="prove -j4"
 alias prspec="parallel_rspec"
 # }}}
 
+# xsel
+alias pbcoby='xsel --clipboard --input'
+
 # others {{{
 #   change directory {{{
 alias cl="clear"
@@ -120,8 +124,8 @@ alias pd="popd"
 setopt auto_cd
 # ↑を設定すると、 .. とだけ入力したら1つ上のディレクトリに移動できるので……
 # # 2つ上、3つ上にも移動できるようにする
-alias ...='cd ../..'
-alias ....='cd ../../..'
+alias ....='cd ../..'
+alias ......='cd ../../..'
 #   }}}
 
 #   vim {{{
@@ -137,7 +141,7 @@ alias "ghu"="ghq get -u"
 #   }}}
 
 alias slink="ln -s"
-alias diff="git diff"
+# alias diff="git diff"
 alias ap='with-sound ansible-playbook'
 alias apv='ap --ask-vault-pass'
 alias av='ansible-vault'

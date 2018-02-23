@@ -10,9 +10,9 @@ export LANG=ja_JP.UTF-8
 export LESSCHARSET=utf-8
 
 # goのパス
-export PATH=$PATH:/usr/local/go/bin
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
+# export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/.anyenv/envs/goenv/versions/1.4/
+# export PATH=$PATH:$GOPATH/bin
 
 # scriptへのパス
 path=( ${path} $HOME/Dropbox/dotfiles/script(N-/) $HOME/.script.local(N-/) )
@@ -44,7 +44,7 @@ done
 source $HOME/dotfiles/cool-peco/cool-peco
 
 # for plenv
-unset -f _plenv
+# unset -f _plenv
 
 # zsh-completions and zsh-syntax-highlighting
 # fpath=(/usr/local/share/zsh-completions(N-/) $fpath)
@@ -81,6 +81,7 @@ setopt noautoremoveslash # 最後がディレクトリで終わる場合, '/'を
 #setopt extended_glob
 setopt ignoreeof # Ctrl + dでシェル閉じない
 setopt nobeep
+setopt AUTO_PARAM_SLASH #ディレクトリ名を補完すると、末尾がスラッシュになる。
 # }}}
 
 # zstyle {{{
@@ -149,7 +150,7 @@ precmd() {
 
 [[ -f ~/.zshrc.prompt ]] && source ~/.zshrc.prompt
 
-RPROMPT="${BLUE}[%2(v|pl:%2v|) %3(v|rb:%3v|) %4(v|py:%4v|) %6(v|nd:%6v|)]${RESET}%1(v|${GREEN}%1v${RESET}|)"
+RPROMPT="${BLUE}[%2(v|py:%2v|) %3(v|pl:%3v|) %4(v|rb:%4v|) %6(v|nd:%6v|)]${RESET}%1(v|${GREEN}%1v${RESET}|)"
 SPROMPT="'%r' is correct? ([n]o, [y]es, [a]bort, [e]dit):"
 
 autoload -Uz add-zsh-hook
@@ -296,7 +297,7 @@ setopt extended_history # 履歴ファイルに時刻記録
 setopt share_history    # historyの共有
 # }}}
 
-# vim mode {{{ 
+# vim mode {{{
 zle -A .backward-delete-char vi-backward-delete-char
 # }}}
 
@@ -460,6 +461,31 @@ setopt hist_expand          # 補完時にヒストリを自動展開
 #power_line {{{
 PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 # export PATH=$PATH:~/.local/bin
-powerline-daemon -q
-. ~/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+# powerline-daemon -q
+# . ~/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 #}}}
+
+
+#
+function start-ssh-agent () {
+    if [[ -S "$SSH_AUTH_SOCK" ]]; then
+        # ForwardAgentなどで既にSSH_AUTH_SOCKがセットされている
+        case $SSH_AUTH_SOCK in
+            /tmp/*/agent.[0-9]*)
+                ln -fs $SSH_AUTH_SOCK $HOME/.ssh/agent.sock && export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
+                echo 'SSH Agent is forwarded!'
+                ;;
+            *)
+                echo 'SSH Agent is already started!'
+                ;;
+        esac
+    elif [[ -S $HOME/.ssh/agent.sock ]]; then
+        # ssh-agentの設定読み込み
+        export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
+        echo 'SSH Agent is already started!'
+    else
+        echo 'Launch SSH Agent ...'
+        eval `ssh-agent -a $HOME/.ssh/agent.sock`
+    fi
+}
+start-ssh-agent

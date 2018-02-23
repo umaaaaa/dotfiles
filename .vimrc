@@ -10,7 +10,8 @@ set fileformats=unix,dos,mac
 syntax enable
 
 "ヤンクでクリップボードにコピーできるように
-set clipboard=unnamed,autoselect
+set clipboard=unnamedplus
+set clipboard=autoselect
 
 ""新しい行のインデントを現在行と同じにする
 set autoindent
@@ -26,10 +27,15 @@ noremap ; :
 noremap : ;
 
 autocmd! FileType html setlocal shiftwidth=2
+autocmd! FileType javascript setlocal shiftwidth=2
 autocmd! FileType css setlocal shiftwidth=2
 autocmd! FileType markdown setlocal shiftwidth=2
 autocmd! FileType markdown hi! def link markdownItalic Normal
+" 末尾の空白削除
+" autocmd BufWritePre * :%s/\s\+$//ge
 set shiftwidth=4
+
+" execute "set colorcolumn=" . join(range(131, 9999), ',')
 
 "ステータスラインを常に表示
 set laststatus=2
@@ -226,7 +232,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " vimmer養成ギプス
 "NeoBundle 'modsound/gips-vim.git'
 " NeoBundle 'plasticboy/vim-markdown'
-" NeoBundle 'tukiyo/previm' 
+" NeoBundle 'tukiyo/previm'
 NeoBundle 'scrooloose/nerdtree'
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 NeoBundle 'tyru/open-browser.vim'
@@ -236,10 +242,10 @@ NeoBundle 'Shougo/vimfiler.vim'
 " Solorized
 NeoBundle 'altercation/vim-colors-solarized'
 "Ruby向けにendを自動挿入
-NeoBundle 'tpope/vim-endwise' 
+NeoBundle 'tpope/vim-endwise'
 " コメントON/OFFを手軽に実行
 NeoBundle 'tomtom/tcomment_vim'
-" vim-ref 
+" vim-ref
 NeoBundle 'thinca/vim-ref'
 "quickrun
 NeoBundle 'thinca/vim-quickrun'
@@ -249,6 +255,8 @@ NeoBundle 'davidhalter/jedi-vim'
 NeoBundle "tyru/caw.vim.git"
 " テキストを整列してくれるやる
 NeoBundle 'junegunn/vim-easy-align'
+" XSLATE
+NeoBundle 'vim-perl/vim-perl'
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
@@ -265,6 +273,10 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 "ヤンク履歴を保持してくれる
 NeoBundle 'LeafCage/yankround.vim'
+" vueのシンタックス
+NeoBundle "pangloss/vim-javascript"
+NeoBundle "mxw/vim-jsx"
+autocmd BufNewFile,BufRead *.{html,htm,vue*} set filetype=html
 " yankround.vim {{{
 nmap p <Plug>(yankround-p)
 nmap P <Plug>(yankround-P)
@@ -293,6 +305,11 @@ vmap <Leader>c <Plug>(caw:i:toggle)
 "ifとかの終了宣言を自動挿入
 NeoBundleLazy 'tpope/vim-endwise', {
   \ 'autoload' : { 'insert' : 1,}}
+
+" シンタックスチェック
+" NeoBundle 'scrooloose/syntastic'
+" let g:syntastic_enable_signs=1
+" let g:syntastic_auto_loc_list=2
 
 
 """オートコンプリート"""
